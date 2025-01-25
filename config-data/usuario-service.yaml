@@ -1,13 +1,11 @@
 server:
-  #port: ${PORT:${SERVER_PORT:0}}
-  port: 0
+  port: ${PORT:${SERVER_PORT:0}}
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url: 
       default-zone: http://localhost:8761/eureka
-    instance:
+    instance:      
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-      #non-secure-port: ${server.port}  
-      prefer-ip-address: true
+      non-secure-port: ${server.port}  # Usa el puerto dinámico
